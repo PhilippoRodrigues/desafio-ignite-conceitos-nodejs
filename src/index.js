@@ -55,8 +55,6 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
   const {user} = request;
   const {title, deadline} = request.body;
 
-  // const dateFormat = new Date(deadline + " 00:00");
-
   const todoOperation = {
     id: uuidv4(),
     title,
@@ -89,7 +87,6 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
   const {user} = request;
-  // const {done} = request.body;
   const { id } = request.params;
 
   const userTodo = user.todos.find(todo => todo.id === id);
